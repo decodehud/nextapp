@@ -1,0 +1,317 @@
+﻿
+@model IEnumerable<nextapp.Models.Empleado>
+
+
+@{
+    ViewData["Title"] = "Mantenimiento de Empleados";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="display-4">Empleados</h1>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <div class="container-fluid">
+
+        <div class="col-md-12 col-12 mb-5">
+
+            <div class="card shadow">
+
+                <div class="row">
+
+                    <div class="col-sm-12 col-md-6">
+                        <div style="display:flex;">
+
+                            <div class="m-2">
+
+                                <a href="~/Home/Index" class="btn btn-primary btn-sm">
+
+                                    <img src="~/img/back.svg" width="18" />
+                                    Return
+                                </a>
+                            </div>
+
+                            <div class="m-2">
+                                <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                    <img src="~/img/add.svg" width="20" />
+                                    Add
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6">
+                        <div class="dataTableBasic_filter">
+
+                            <div class="m-2">
+                                <input type="search" class="form-control form-control-sm" placeholder="Search" id="search">
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="card-body pt-2">
+
+                        <div class="table-responsive">
+
+                            @if (Model.Count() > 0)
+                            {
+
+                                <table class=" table table-sm table-hover text-nowrap" id="table">
+
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">
+                                                @Html.DisplayNameFor(model => model.id_empleados)
+                                            </th>
+
+                                            <th scope="col">
+                                                @Html.DisplayNameFor(model => model.nombre)
+                                            </th>
+
+                                            <th scope="col">
+                                                @Html.DisplayNameFor(model => model.apellido)
+                                            </th>
+
+                                            <th scope="col">
+                                                @Html.DisplayNameFor(model => model.codigo_empleado)
+                                            </th>
+
+                                            <th scope="col">
+                                                @Html.DisplayNameFor(model => model.cargo)
+                                            </th>
+                                            <th scope="col">
+                                                @Html.DisplayNameFor(model => model.correo)
+                                            </th>
+                                            <th scope="col">
+                                                @Html.DisplayNameFor(model => model.departamento)
+                                            </th>
+                                            <th scope="col">
+                                                @Html.DisplayNameFor(model => model.equipo_asignado)
+                                            </th>
+                                            <th scope="col">
+                                                @Html.DisplayNameFor(model => model.fecha_asignacion)
+                                            </th>
+
+
+                                            <th scope="col">
+                                                Acciones
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+
+                                    @foreach (var item in Model)
+                                    {
+
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.id_empleados)
+                                                </td>
+
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.nombre)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.apellido)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.codigo_empleado)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.cargo)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.correo)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.departamento)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.equipo_asignado)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.fecha_asignacion)
+                                                </td>
+
+
+                                                <td>
+                                                    <a href="/Empleado/Delete?id_empleados=@item.id_empleados" class="btn btn-danger btn-sm">
+                                                        Delete
+                                                    </a>
+
+                                                </td>
+                                                <td>
+                                                    <a href="/Empleado/Edit?id_empleados=@item.id_empleados" class="btn btn-warning btn-sm">
+                                                        Edit
+                                                    </a>
+
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+
+                                    }
+
+                                </table>
+
+                            }
+                            else
+                            {
+                                <div class="p-4">
+                                    <div class="">
+                                        <div class="row">
+
+                                            <div class="card shadow">
+
+                                                <p class="justify-content-center text-center text-muted p-2">
+                                                    Aun no hay empleados registrados
+                                                </p>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            }
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!--Modal agregar-->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Create New</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <form class="row needs-validation" asp-action="Create"  asp-controller="Empleado" novalidate>
+
+                        <div class="mb-3 col-12 col-md-6">
+                            <label class="form-label text-label" for="fnombre">Nombre</label>
+                            <input type="text" class="form-control form-control-sm" id="fnombre" name="nombre" required>
+                            <div class="valid-feedback">
+                                Nombre ingresado
+                            </div>
+                            <div class="invalid-feedback">
+                                Ingrese nombre del empleado
+                            </div>
+                        </div>
+
+                        <div class="mb-3 col-12 col-md-6">
+                            <label class="form-label text-label" for="lname">Apellido</label>
+                            <input type="text" id="lname" class="form-control form-control-sm" name="apellido" required>
+
+                            <div class="valid-feedback">
+                                Apellido ingresado
+                            </div>
+                            <div class="invalid-feedback">
+                                Ingrese apellido del empleado
+                            </div>
+
+                        </div>
+
+                        <div class="mb-3 form-group">
+                            <label class="form-label" for="fcodigo">Codigo de empleado</label>
+                            <input type="text" class="form-control form-control-sm" id="fcodigo" name="codigo_empleado" placeholder="86232020"
+                               maxlength="8"    oninput="this.value = this.value.replace(/[^0-9]/g,'')" required>
+
+                            <div class="valid-feedback">
+                                Codigo de empleado ingresado
+                            </div>
+                            <div class="invalid-feedback">
+                                Ingrese codigo codigo de empleado
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="fcargo">Cargo</label>
+                            <input type="text" class="form-control form-control-sm" id="fcargo" name="cargo" required
+                                   placeholder="System Analyst">
+
+                            <div class="valid-feedback">
+                                Cargo ingresado
+                            </div>
+                            <div class="invalid-feedback">
+                                Ingrese el cargo del empleado
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="fcorreo">Correo</label>
+                            <input type="email" class="form-control form-control-sm" id="fcorreo" name="correo"
+                                   placeholder="user@dudev.com" required>
+
+                            <div class="valid-feedback">
+                                Correo ingresado
+                            </div>
+                            <div class="invalid-feedback">
+                                Ingrese el correo del empleado
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="fdepartamento">Area</label>
+                            <input type="text" class="form-control form-control-sm" id="fdepartamento" name="departamento" required
+                                   placeholder="Infraestructura">
+
+                            <div class="valid-feedback">
+                                Area ingresado
+                            </div>
+                            <div class="invalid-feedback">
+                                Ingrese el area que pertenece el empleado
+                            </div>
+                        </div>
+
+
+                        <div class="d-grid pb-4">
+                            <button type="submit" class="btn btn-success" value="Save">Agregar</button>
+                        </div>
+
+                        <div class="d-grid pb-4">
+                            <button type="reset" class="btn btn-primary">Limpiar</button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/Search.js"></script>
+</body>
+</html>

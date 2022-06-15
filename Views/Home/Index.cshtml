@@ -1,0 +1,98 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/css/theme.min.css" rel="stylesheet" />
+    <title>Universidad Tecnologica de El Salvador</title>
+</head>
+<body>
+
+        <div class="container">
+            <div class="row">
+                <div class="card shadow p-4">
+
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+                        @if (User.IsInRole("administrador"))
+                        {
+                            <div class="col">
+                                <div class="card shadow p-2">
+
+                                    <div class="text-center">
+
+                                        <img src="~/img/man.png" width="150" />
+                                        <div class="card-body">
+                                            <h5 class="display-5">Empleado</h5>
+                                            <a href="~/Empleado/Index" class="btn btn-success mb-2">Mantenimiento</a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="col">
+                                <div class="card shadow p-2">
+
+                                    <div class="text-center">
+
+                                        <img src="~/img/monitor.svg" width="150" />
+                                        <div class="card-body">
+                                            <h5 class="display-5">Equipos</h5>
+
+                                            <a href="~/Equipo/Index" class="btn btn-success mb-2">Mantenimiento</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="card shadow p-2">
+
+                                    <div class="text-center">
+
+                                        <img src="~/img/starred-message.svg" width="150" />
+                                        <div class="card-body">
+                                            <h5 class="display-5">Solicitudes</h5>
+                                            <a href="/Solicitud/Index" class="btn btn-success mb-2">Mantenimiento</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        }
+                        @if(User.IsInRole("invitado")){
+
+                            <div class="col">
+                                <div class="card shadow p-2">
+
+                                    <div class="text-center">
+
+                                        <img src="~/img/starred-message.svg" width="150" />
+                                        <div class="card-body">
+                                            <h5 class="display-5">Solicitud nueva</h5>
+                                            <a asp-controller="Portal" asp-action="Create" class="btn btn-success mb-2">Solictar</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+</body>
+</html>

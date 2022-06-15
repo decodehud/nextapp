@@ -1,0 +1,60 @@
+﻿@model nextapp.Models.Empleado
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/css/sweetalert2.min.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <div class="container d-flex flex-column">
+        <div class="row align-items-center justify-content-center g-0 min-vh-100">
+            <div class="col-lg-5 col-md-8 py-xl-0">
+
+                <div class="swal2-container swal2-center swal2-backdrop-show">
+
+                    <div class="swal2-popup swal2-modal swal2-icon-warning swal2-show" tabindex="-1" role="dialog" aria-live="assertive" aria-modal="true" style="display: grid;">
+
+                        <div class="swal2-icon swal2-warning swal2-icon-show" style="display: flex;">
+                            <div class="swal2-icon-content">!</div>
+                        </div>
+
+                        <h2 class="swal2-title" id="swal2-title">Are you sure?</h2>
+
+                        <div class="swal2-html-container" id="swal2-html-container">You won't be able to revert this!</div>
+
+                        <div class="swal2-actions">
+                            <div class="swal2-loader"></div>
+
+
+                            <form asp-action="Delete">
+
+                                <input type="hidden" asp-for="id_empleados" />
+
+                                <div class="form-group mt-4">
+                                    <button type="submit" class="btn btn-primary">Yes, delete it</button>
+                                    <button class="btn btn-danger" asp-controller="empleado" asp-action="Index">Cancel</button>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

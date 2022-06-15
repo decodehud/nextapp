@@ -1,0 +1,130 @@
+﻿@model nextapp.Models.Solicitud
+
+@{
+    ViewData["Title"] = "solicitud de Equipo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="~/js/flatpickr.min.js"></script>
+</head>
+<body>
+    <div class="container d-flex flex-column">
+        <div class="row align-items-center justify-content-center g-0 min-vh-100">
+            <div class="col-lg-8 py-8 py-xl-0">
+
+                <div class="card shadow ">
+
+                    <div class="card-body">
+
+                        <form class="row needs-validation" asp-action="Create" asp-controller="Portal" novalidate>
+
+                            <div class="mb-3 col-12 col-md-6">
+                                <label class="form-label text-label" for="fnombre">Nombre</label>
+                                <input type="text" class="form-control form-control-sm" id="fnombre" name="nombre" required>
+                                <div class="valid-feedback">
+                                    Ingresando nombre
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese un nombre
+                                </div>
+                            </div>
+
+                            <div class="mb-3 col-12 col-md-6">
+                                <label class="form-label text-label" for="fapellido">Apellido</label>
+                                <input type="text" class="form-control form-control-sm" id="fapellido" name="apellido" required>
+                                <div class="valid-feedback">
+                                    Ingresando apellido
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese un apellido
+                                </div>
+                            </div>
+
+                            <div class="mb-3 col-12 col-md-6">
+                                <label class="form-label text-label" for="fcodigEmpleado">Codigo empleado</label>
+                                <input type="text" class="form-control form-control-sm" id="fcodigEmpleado" name="codigo_empleado" required>
+                                <div class="valid-feedback">
+                                    Ingresando codigo
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese un codigo
+                                </div>
+                            </div>
+
+                            <div class="mb-3 col-12 col-md-6">
+                                <label class="form-label text-label" for="fcorreo">Correo</label>
+                                <input type="text" class="form-control form-control-sm" id="fcorreo" name="correo" required>
+                                <div class="valid-feedback">
+                                    Ingresando correo
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese un correo
+                                </div>
+                            </div>
+
+                            <div class="mb-3 col-12 col-md-6">
+                                <label class="form-label text-label" for="ftelefono">Telefono</label>
+                                <input type="text" class="form-control form-control-sm" id="ftelefono" name="telefono" required>
+                                <div class="valid-feedback">
+                                    Ingresando telefono
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese numero de telefono valido
+                                </div>
+                            </div>
+
+                            <div class="mb-3 col-12 col-md-6">
+                                <label class="form-label text-label" for="fcargo">Cargo</label>
+                                <input type="text" class="form-control form-control-sm" id="fcargo" name="cargo" required>
+                                <div class="valid-feedback">
+                                    Ingresando cargo
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese un cargo
+                                </div>
+                            </div>
+
+                            <div class="mb-3 col-12 col-md-6">
+                                <label class="form-label" for="ffecha">Fecha de solicitud</label>
+                                <input type="date" class="form-control flatpickr flatpickr-input active" id="ffecha" name="fecha_solicitud">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label" for="selectOne">
+                                    Tipo de solicitud
+                                </label>
+                                <select name="tipo_solicitud" class="form-control">
+                                    <option value="Asignacion">Asignacion</option>
+                                    <option value="Prestamo">Prestamo</option>
+                                    <option value="Consulta">Consulta</option>
+                                    <option value="Informacion">Informacion</option>
+
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label" for="fmensaje">Mensaje</label>
+                                <textarea class="form-control" id="fmensaje" rows="5" placeholder="Your Mensaje here..." spellcheck="false" minlength="10" name="mensaje" required></textarea>
+                            </div>
+
+
+                            <div class="d-grid pb-4">
+                                <button type="submit" class="btn btn-success" value="Create">Solicitar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+

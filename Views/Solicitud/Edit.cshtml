@@ -1,0 +1,203 @@
+﻿@model nextapp.Models.Solicitud
+
+@{
+
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Agregar Empleado</title>
+
+</head>
+<body>
+
+    <div class="container d-flex flex-column">
+        <div class="row align-items-center justify-content-center g-0 min-vh-100">
+            <div class="col-lg-5 col-md-8 py-8 py-xl-0">
+
+                <div class="card shadow ">
+
+                    <div class="card-body">
+                        <div class="mb-4  pb-4">
+
+                            <div class="card shadow">
+                                <h1 class="display-3 text-center">Actualizar</h1>
+                                <h1 class="fw-bold text-center">Empleado</h1>
+                            </div>
+                        </div>
+
+                        <form class="row needs-validation" method="post" action="~/Solicitud/Edit" novalidate>
+
+
+                            <div class="mb-3">
+                                <label class="form-label text-label"># de registro</label>
+                                <input type="text" class="form-control form-control-sm" asp-for="id_Solicitud" readonly>
+
+                                <div class="valid-feedback">
+                                    Apellido ingresado
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese apellido del empleado
+                                </div>
+
+                            </div>
+
+                            <div class="mb-3 col-12 col-md-6">
+                                <label class="form-label text-label" for="fnombre">Nombre</label>
+                                <input type="text" class="form-control form-control-sm" id="fnombre" asp-for="nombre" required>
+                                <div class="valid-feedback">
+                                    Nombre ingresado
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese nombre del empleado
+                                </div>
+                            </div>
+
+                            <div class="mb-3 col-12 col-md-6">
+                                <label class="form-label text-label" for="lname">Apellido</label>
+                                <input type="text" id="lname" class="form-control form-control-sm" asp-for="apellido" required>
+
+                                <div class="valid-feedback">
+                                    Apellido ingresado
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese apellido del empleado
+                                </div>
+
+                            </div>
+
+                            <div class="mb-3 form-group">
+                                <label class="form-label" for="fcodigo">Codigo de empleado</label>
+                                <input type="text" class="form-control form-control-sm" id="fcodigo" asp-for="codigo_empleado" maxlength="8" required
+                                       placeholder="86232020">
+
+                                <div class="valid-feedback">
+                                    Codigo de empleado ingresado
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese codigo codigo de empleado
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label" for="fcorreo">Correo</label>
+                                <input type="email" class="form-control form-control-sm" id="fcorreo" asp-for="correo"
+                                       placeholder="user@dudev.com" required>
+
+                                <div class="valid-feedback">
+                                    Correo ingresado
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese el correo del empleado
+                                </div>
+                            </div>
+
+                            <div class="mb-3 form-group">
+                                <label class="form-label" for="fcodigo">Telefono</label>
+                                <input type="number" class="form-control form-control-sm" id="fcodigo" asp-for="telefono" maxlength="8" required
+                                       placeholder="77889977">
+
+                                <div class="valid-feedback">
+                                    Codigo de empleado ingresado
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese codigo codigo de empleado
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label" for="fcargo">Cargo</label>
+                                <input type="text" class="form-control form-control-sm" id="fcargo" asp-for="cargo" required
+                                       placeholder="System Analyst">
+
+                                <div class="valid-feedback">
+                                    Cargo ingresado
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese el cargo del empleado
+                                </div>
+                            </div>
+
+
+
+                            <div class="mb-3">
+                                <label class="form-label" for="fsolicitud">Fecha de solicitud</label>
+                                <input type="text" class="form-control form-control-sm" id="fsolicitud" asp-for="fecha_solicitud" readonly>
+
+                                <div class="valid-feedback">
+                                    Area ingresado
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese el area que pertenece el empleado
+                                </div>
+                            </div>
+
+
+                            <div class="mb-3">
+                                <label class="form-label">Asignar Tecnico</label>
+                                <select class="form-select form-select-sm" name="tecnico_asignado">
+                                    
+                                    <option value="Douglas Deodanes">Douglas Deodanes</option>
+                                    <option value="Ruth Novoa">Ruth Novoa</option>
+                                    <option value="Diego Mejia">Diego Mejia</option>
+                                    <option value="Gerson Rivas">Gerson Rivas</option>
+                                </select>
+                            </div>
+
+
+
+                            <div class="mb-3">
+                                <label class="form-label">Tipo de solicitud</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="tipo_solicitud" value="Prestamo" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault" name>
+                                        Prestamo
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="tipo_solicitud" value="Asignacion" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Asignacion
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="tipo_solicitud" value="Consulta" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Consulta
+                                    </label>
+                                </div>
+                            </div>
+
+
+                            <div class="mb-3">
+                                <label class="form-label" for="fmensaje">Mensaje</label>
+                                <textarea class="form-control" id="fmensaje" rows="5" placeholder="Your Mensaje here..." spellcheck="false" minlength="10" asp-for="mensaje" required></textarea>
+                            </div>
+
+
+                            <div class="d-grid pb-4">
+                                <button type="submit" class="btn btn-success" value="Update">Actualizar Registro</button>
+                            </div>
+
+
+                            <div class="d-grid pb-4">
+                                <a href="/Solicitud/Index" class="btn btn-primary">Regresar</a>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/js/validation.js"></script>
+</body>
+</html>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
